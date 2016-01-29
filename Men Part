@@ -3,28 +3,45 @@
 #include<conio.h>
 
 using namespace std;
-int i=0,j=0;
-char ch[50];
+int i=0,j=0,choic=0,total=0;
+char ch[50],hairstyle[50],beardstyle[50],waxingplace[50],haircolour[50];
 class Customer
 {
- int choices[11],prices[11];
+ int choices[11],prices[11],x[11];
 
  void report()
  {
-   cout<<"Your total billed amount is"<<endl;
+   cout<<"-----------------------------------------------CUSTOMER BILL-----------------------------------------------------"<<endl;
 
      for(i=0;i<11;i++)
      {
 
          switch (choices[i])
          {
-             case 50: cout<<"Hair Cut                Rs 50"<<endl;
-
+             case 1: cout<<"Hair Cut "<<"\t"<<ch<<"  "<<hairstyle<<"    "<<prices[i]<<endl; break;
+            case 2: cout<<"Beard Styling "<<"\t"<<beardstyle<<"    "<<prices[i]<<endl; break;
+            case 3: cout<<"Waxing "<<"\t"<<waxingplace<<"    "<<prices[i]<<endl; break;
+            case 4: cout<<"Shave "<<"\t"<<prices[i]<<endl; break;
+            case 5: cout<<"Facial "<<"\t"<<prices[i]<<endl; break;
+            case 6: cout<<"Massage"<<"\t"<<prices[i]<<endl; break;
+            case 7: cout<<"Hair colour"<<"\t"<<haircolour<<"  "<<prices[i]<<endl; break;
+             case 8: cout<<"Rebonding "<<"\t"<<prices[i]<<endl; break;
+              case 9: cout<<"Hair oiling"<<"\t"<<prices[i]<<endl; break;
+               case 10: cout<<"Hair shampoo "<<"\t"<<prices[i]<<endl; break;
          }
      }
+
+ for(i=0;i<11;i++)
+ {
+     total=total+prices[i];
  }
 
- void priceassign
+
+ cout<<"Your total billed amount is    "<<total;
+
+ }
+
+ void priceassign()
  {
 
      for(i=0;i<11;i++)
@@ -48,13 +65,12 @@ class Customer
          prices[i]=20;
          else if (choices[i]==9)
          prices[i]=20;
+}
+
+}
 
 
-
-
-     }
- }
- void assign(int x)
+void assign(int x)
  {
 
   int m[11];
@@ -70,10 +86,20 @@ class Customer
 };
 int main()
 {
-    int x[11];
-    Customer men1;
-    cout << "--------------------------------------MENS SECTION-----------------------------------------" << endl;
+
+    do
+    {cout << "--------------------------------------MENS SECTION-----------------------------------------" << endl;
     cout<<"Our salons provide a wide variety of options to choose from at a very minimal cost"<<endl;
+    cout<<"1.View List of Options"<<endl;
+    cout<<"2.View your Bill"<<endl;
+    cout<<"3.Exit"<<endl;
+    cout<<endl<<endl;
+    cout<<"Enter your choice"<<endl;
+    cin>>choic;
+    if(choic==1)
+    {
+     Customer men1;
+
     cout<<"1. Hair cut"<<endl;
     cout<<"2.Beard Styling"<<endl;
     cout<<"3.Waxing"<<endl;
@@ -84,13 +110,16 @@ int main()
     cout<<"8.Rebonding"<<endl;
     cout<<"9.Hair oiling"<<endl;
     cout<<"10.Hair Shampoo"<<endl;
+
+
     cout<<endl<<endl;
-    cout<<"Enter your options(By pressing enter one by one) and to finish selecting enter 11"<<endl;
-    for(i=0;i<11;i++)
+    cout<<"Enter your options(By pressing enter one by one) and to finish selecting enter 0"<<endl;
+    do
     {
      cin>>x[i];
-    }
-    void rechoice(int x)
+     i++;
+    }while(x[i]!=0)
+    void reportchoice(int x)
     {
      for(i=0;i<11;i++)
      {
@@ -101,34 +130,52 @@ int main()
              clrscr();
              cout<<"Enter the type of Hair you want(Short or Medium)"<<endl;
              gets(ch);
-             
-             if(strcmpi(c
-             {
-                 x[i]=12
-             }
+             cout<<"Enter the Style of Hair you want(Spikes,Ceaser,Hipster)"<<endl;
+             gets(hairstyle);
+
+
          }
+
+         if(x[i]==2)
+         {
+
+             clrscr();
+             cout<<"Enter the Beard style(Goatee,Anchor,Soulpatch)"<<endl;
+            gets(beardstyle);
+         }
+
+         if(x[i]==3)
+         {
+
+             clrscr();
+             cout<<"Enter the Waxing place(Chest,Legs)"<<endl;
+            gets(waxingplace);
+         }
+
+        if(x[i]==7)
+         {
+
+             clrscr();
+             cout<<"Enter the Hair Colour(Brown,Black,Red,Yellow)"<<endl;
+            gets(haircolour);
+         }
+
+
      }
 
     }
     men1.assign(x);
+    reportchoice(x);
+    men1.priceassign();
+    }
+    else if(choic=2)
+    {
+
+        men1.report();
+    }
 
 
+    }while(choic!=3);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    return 0;
+return 0;
 }
