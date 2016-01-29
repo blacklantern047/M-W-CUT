@@ -1,0 +1,134 @@
+#include <iostream>
+#include<string.h>
+#include<conio.h>
+
+using namespace std;
+int i=0,j=0;
+char ch[50];
+class Customer
+{
+ int choices[11],prices[11];
+
+ void report()
+ {
+   cout<<"Your total billed amount is"<<endl;
+
+     for(i=0;i<11;i++)
+     {
+
+         switch (choices[i])
+         {
+             case 50: cout<<"Hair Cut                Rs 50"<<endl;
+
+         }
+     }
+ }
+
+ void priceassign
+ {
+
+     for(i=0;i<11;i++)
+     {
+
+         if(choices[i]==1)
+         prices[i]=50;
+         else if (choices[i]==2)
+         prices[i]=20;
+         else if (choices[i]==3)
+         prices[i]=40;
+         else if (choices[i]==4)
+         prices[i]=30;
+         else if (choices[i]==5)
+         prices[i]=50;
+         else if (choices[i]==6)
+         prices[i]=100;
+         else if (choices[i]==7)
+         prices[i]=20;
+         else if (choices[i]==8)
+         prices[i]=20;
+         else if (choices[i]==9)
+         prices[i]=20;
+
+
+
+
+     }
+ }
+ void assign(int x)
+ {
+
+  int m[11];
+  for(i=0;i<11;i++)
+  {
+     m[i]=x[j];
+  }
+  for(i=0;i<11;i++)
+  {
+      choices[i]=m[j];
+  }
+ }
+};
+int main()
+{
+    int x[11];
+    Customer men1;
+    cout << "--------------------------------------MENS SECTION-----------------------------------------" << endl;
+    cout<<"Our salons provide a wide variety of options to choose from at a very minimal cost"<<endl;
+    cout<<"1. Hair cut"<<endl;
+    cout<<"2.Beard Styling"<<endl;
+    cout<<"3.Waxing"<<endl;
+    cout<<"4.Shave"<<endl;
+    cout<<"5.Facial"<<endl;
+    cout<<"6.Massage"<<endl;
+    cout<<"7.Hair Colour"<<endl;
+    cout<<"8.Rebonding"<<endl;
+    cout<<"9.Hair oiling"<<endl;
+    cout<<"10.Hair Shampoo"<<endl;
+    cout<<endl<<endl;
+    cout<<"Enter your options(By pressing enter one by one) and to finish selecting enter 11"<<endl;
+    for(i=0;i<11;i++)
+    {
+     cin>>x[i];
+    }
+    void rechoice(int x)
+    {
+     for(i=0;i<11;i++)
+     {
+
+         if(x[i]==1)
+         {
+
+             clrscr();
+             cout<<"Enter the type of Hair you want(Short or Medium)"<<endl;
+             gets(ch);
+             
+             if(strcmpi(c
+             {
+                 x[i]=12
+             }
+         }
+     }
+
+    }
+    men1.assign(x);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return 0;
+}
