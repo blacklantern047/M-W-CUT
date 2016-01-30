@@ -1,13 +1,64 @@
 #include <iostream>
 #include<string.h>
-#include<conio.h>
-
+#include<stdlib.h>
+#include<stdio.h>
 using namespace std;
 int i=0,j=0,choic=0,total=0;
+int choices[11],prices[11],x[11];
+
 char ch[50],hairstyle[50],beardstyle[50],waxingplace[50],haircolour[50];
+
+void reportchoice()
+    {
+     for(i=0;i<11;i++)
+     {
+
+         if(x[i]==1)
+         {
+
+             system("cls");
+             cout<<"Enter the type of Hair you want(Short or Medium)"<<endl;
+             gets(ch);
+             cout<<"Enter the Style of Hair you want(Spikes,Ceaser,Hipster)"<<endl;
+             gets(hairstyle);
+
+
+         }
+
+        else if(x[i]==2)
+         {
+
+             system("cls");
+             cout<<"Enter the Beard style(Goatee,Anchor,Soulpatch)"<<endl;
+            gets(beardstyle);
+         }
+
+        else if(x[i]==3)
+         {
+
+             system("cls");
+             cout<<"Enter the Waxing place(Chest,Legs)"<<endl;
+            gets(waxingplace);
+         }
+
+      else if(x[i]==7)
+         {
+
+             system("cls");
+             cout<<"Enter the Hair Colour(Brown,Black,Red,Yellow)"<<endl;
+            gets(haircolour);
+         }
+
+
+     }
+
+    } //reportchoice close//
+
+
+
 class Customer
 {
- int choices[11],prices[11],x[11];
+
 
  void report()
  {
@@ -70,25 +121,29 @@ class Customer
 }
 
 
-void assign(int x)
+void assign(int x[])
  {
 
-  int m[11];
+int m[11];
   for(i=0;i<11;i++)
   {
-     m[i]=x[j];
+     m[i]=x[i];
   }
   for(i=0;i<11;i++)
   {
-      choices[i]=m[j];
+      choices[i]=m[i];
   }
  }
 };
+
+
 int main()
 {
 
-    do
-    {cout << "--------------------------------------MENS SECTION-----------------------------------------" << endl;
+do
+ {
+    Customer men1;
+    cout <<"--------------------------------------MENS SECTION-----------------------------------------"<< endl;
     cout<<"Our salons provide a wide variety of options to choose from at a very minimal cost"<<endl;
     cout<<"1.View List of Options"<<endl;
     cout<<"2.View your Bill"<<endl;
@@ -96,9 +151,9 @@ int main()
     cout<<endl<<endl;
     cout<<"Enter your choice"<<endl;
     cin>>choic;
-    if(choic==1)
-    {
-     Customer men1;
+   if(choic==1)
+  {
+
 
     cout<<"1. Hair cut"<<endl;
     cout<<"2.Beard Styling"<<endl;
@@ -114,68 +169,27 @@ int main()
 
     cout<<endl<<endl;
     cout<<"Enter your options(By pressing enter one by one) and to finish selecting enter 0"<<endl;
-    do
+    for(i=0;i<11;i++)
     {
      cin>>x[i];
-     i++;
-    }while(x[i]!=0)
-    void reportchoice(int x)
-    {
-     for(i=0;i<11;i++)
-     {
-
-         if(x[i]==1)
-         {
-
-             clrscr();
-             cout<<"Enter the type of Hair you want(Short or Medium)"<<endl;
-             gets(ch);
-             cout<<"Enter the Style of Hair you want(Spikes,Ceaser,Hipster)"<<endl;
-             gets(hairstyle);
-
-
-         }
-
-         if(x[i]==2)
-         {
-
-             clrscr();
-             cout<<"Enter the Beard style(Goatee,Anchor,Soulpatch)"<<endl;
-            gets(beardstyle);
-         }
-
-         if(x[i]==3)
-         {
-
-             clrscr();
-             cout<<"Enter the Waxing place(Chest,Legs)"<<endl;
-            gets(waxingplace);
-         }
-
-        if(x[i]==7)
-         {
-
-             clrscr();
-             cout<<"Enter the Hair Colour(Brown,Black,Red,Yellow)"<<endl;
-            gets(haircolour);
-         }
-
-
-     }
-
+     if (x[i]==0)
+        {break;}
     }
-    men1.assign(x);
-    reportchoice(x);
+
+
+
+    men1.assign(x[]);
+    reportchoice();
     men1.priceassign();
-    }
-    else if(choic=2)
+ }
+    else if(choic==2)
     {
 
         men1.report();
     }
 
 
-    }while(choic!=3);
+ }while(choic!=3);
 
 return 0;
 }
